@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 app.use(express.json());
 
 app.get('/', function(req,res) {
-    res.send("Welcome to our HOTEL")
+    res.send("Welcome to our Hotel!")
 })
 // Import the router files 
 
