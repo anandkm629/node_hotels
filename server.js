@@ -4,15 +4,15 @@ const Menu = require('./models/Menu')
 require('dotenv').config();
 const app = express();
 
+const PORT = process.env.PORT || 3000;
+
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
 app.use(express.json());
 
-const PORT = process.env.PORT || 3000;
-
 app.get('/', function(req,res) {
-    res.send("Hello world!")
+    res.send("Welcome to our HOTEL")
 })
 // Import the router files 
 
