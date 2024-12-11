@@ -1,6 +1,7 @@
 const express = require('express');
 const Person = require('./../models/Person')
 const router = express.Router();
+const {jwtAuthMiddleware,generateToken} = require('./../jwt') 
 
 router.post('/', async (req,res)=>{
     try {
@@ -17,7 +18,10 @@ router.post('/', async (req,res)=>{
     
         const response = await newPerson.save();
         console.log('data saved');
-        res.status(200).json(response);       
+        const token = generateToken(response.email);
+        console.log("Token is :" ,token);
+        
+        res.status(200).json({response:response , token:token});       
     }
     catch(err) {
      console.log(err);
